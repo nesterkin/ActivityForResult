@@ -1,5 +1,6 @@
 package com.github.nesterkin.helloandroid;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,12 @@ import static com.github.nesterkin.helloandroid.MainActivity.VALUE;
 public class MainActivity3 extends AppCompatActivity {
 
     private EditText mEditText;
+
+    public static Intent newIntent(Context context, String text) {
+        Intent intent = new Intent(context, MainActivity3.class);
+        intent.putExtra(VALUE, text);
+        return intent;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

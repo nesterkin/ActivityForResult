@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, MainActivity3.class);
                 intent.putExtra(VALUE, mEditText.getText().toString());
-                startActivityForResult(intent, REQUEST_CODE);
+                startActivityForResult(MainActivity3.newIntent(getApplicationContext(), mEditText.getText().toString()), REQUEST_CODE);
             }
         });
     }
@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
         if (data != null && resultCode == RESULT_OK) {
             if (requestCode == REQUEST_CODE) {
                 mEditText.setText(data.getStringExtra(VALUE));
-
             }
         }
     }

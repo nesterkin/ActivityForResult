@@ -6,14 +6,16 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import static com.github.nesterkin.helloandroid.MainActivity.VALUE;
+
 public class MainActivity2 extends AppCompatActivity {
 
-    private static String mText;
     private TextView mTextView;
 
     public static Intent newIntent(Context context, String text) {
-        mText = text;
-        return new Intent(context, MainActivity2.class);
+        Intent intent = new Intent(context, MainActivity2.class);
+        intent.putExtra(VALUE, text);
+        return intent;
     }
 
     @Override
@@ -23,6 +25,6 @@ public class MainActivity2 extends AppCompatActivity {
 
         setTitle("Screen 2");
         mTextView = findViewById(R.id.text_view);
-        mTextView.setText(mText);
+        mTextView.setText(getIntent().getStringExtra(VALUE));
     }
 }
